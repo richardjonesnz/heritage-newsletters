@@ -10,20 +10,31 @@
 <body>
 <div class="container">
   <div class="row">
-    <div class="col-md-9">
+    <div class="col-md-12">
       <h3>{{greeting}}{{name}}</h3>
-      <p>{{body}}</p>
-    </div>
-    <div class="col-md-3">
-      <div class="card">
-        <div class="card-body">
-          <h4 class="card-title>">{{navcardtitle}}</h4>
-          <p class="card-text">{{navcardbody}}</p>
-          {{> links}}
-        </div>
-      </div>
+      <p>{{general}}</p>
+      <p>{{search}}<a href="articles.php">articles</a></p>
     </div>
   </div>
   <br />
+  <table class="table table-striped">
+    <thead>
+      <th>Number</th>
+      <th>Month</th>
+      <th>Year</th>
+      <th>Click to view</th>
+    </thead>
+   <tbody>
+    {{#records}}
+     <tr>
+       <td>{{id}}</td>
+       <td>{{month}}</td>
+       <td>{{year}}</td>
+       <td><a href="pdf/Newsletter_{{id}}.pdf">link</a></td>
+     </tr>
+    {{/records}}
+    </tbody>
+  </table>
+
 <div>
 {{> footer }}
