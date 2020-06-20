@@ -1,0 +1,29 @@
+{{!
+    Template for a generic html page
+
+    * @package heritage-newsletters
+    * @copyright 2019 Richard Jones https://richardnz.net
+    * @license Creative Commons CC-BY 3.0 NZ
+
+}}
+{{> header}}
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-md-9">
+      <h3>{{greeting}}{{name}}</h3>
+      <p>{{body}}</p>
+    </div>
+    <div class="col-md-3">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title>">{{navcardtitle}}</h4>
+          <p class="card-text">{{navcardbody}}</p>
+          {{> links}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <br />
+<div>
+{{> footer }}
