@@ -7,6 +7,7 @@
  * @license Creative Commons CC-BY 3.0 NZ
  */
 require_once('/var/www/news/config_inc.php');
+require_once('/var/www/news/mustache_inc.php');
 include('classes/utility.php');
 
 $template = $M->loadTemplate('welcome.mustache');

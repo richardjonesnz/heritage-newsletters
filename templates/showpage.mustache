@@ -1,0 +1,22 @@
+{{!
+    Template for a generic html page
+
+    * @package heritage-newsletters
+    * @copyright 2019 Richard Jones https://richardnz.net
+    * @license Creative Commons CC-BY 3.0 NZ
+
+}}
+{{> header}}
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2>{{heading}}</h2>
+      <h3>{{greeting}} {{number}}</h3>
+      <p>{{general}}<a href="index.php">home</a></p>
+      <iframe src="pdf/Newsletter_{{number}}.pdf" width="100%" height="800px">
+      </iframe>
+    </div>
+  </div>
+  <br>
+  {{> footer }}

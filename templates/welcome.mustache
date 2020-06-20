@@ -11,12 +11,14 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
+      <h2>{{heading}}</h2>
       <h3>{{greeting}}{{name}}</h3>
       <p>{{general}}</p>
       <p>{{search}}<a href="articles.php">articles</a></p>
     </div>
   </div>
   <br />
+  <div>
   <table class="table table-striped">
     <thead>
       <th>Number</th>
@@ -30,11 +32,10 @@
        <td>{{id}}</td>
        <td>{{month}}</td>
        <td>{{year}}</td>
-       <td><a href="pdf/Newsletter_{{id}}.pdf">link</a></td>
+       <td><a href="showpage.php?id={{id}}">link</a></td>
      </tr>
     {{/records}}
     </tbody>
   </table>
-
-<div>
-{{> footer }}
+  </div>
+  {{> footer }}
