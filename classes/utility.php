@@ -44,5 +44,18 @@ class utility {
 
         return $s->fetchAll();
     }
+    /**
+    * Searches the articles table.
+    *
+    * @return array of data records.
+    */
+    public static function fetch_results($conn, $searchtext) {
+
+        $sql = "SELECT * FROM articles WHERE
+                title LIKE '$searchtext' OR
+                description LIKE '$searchtext'";
+
+        return $conn->query($sql);
+    }
 
 }

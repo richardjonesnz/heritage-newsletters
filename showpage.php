@@ -8,17 +8,14 @@
  */
 require_once('/var/www/news/mustache_inc.php');
 
-// Get the Newsletter id (not sensitive data).
+// Get the Newsletter id.
 $number = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
-echo 'this is ' . $number;
+
+if ( ($number < 1) || ($number > 45) ) { $number = 1; }
 $template = $M->loadTemplate('showpage.mustache');
 $data = new stdClass;
 $data->number = $number;
 $data->pagetitle = 'Viewing Newsletter';
 $data->heading = 'Newsletters home page';
-$data->greeting = 'View newsletter: ';
-$data->general = 'To return to the home page click here: ';
-$data->copyright = '2020 Richard F Jones for Pirongia Heritage Centre';
-$data->website = 'https://richardnz.net';
 
 echo $template->render($data);
