@@ -13,8 +13,8 @@ class utility {
     * @return months array
     */
     public static function fetch_months() {
-        return ['January', 'February', 'March', 'April', 'May', 'June',
-                'July', 'August', 'September', 'October', 'November', 'December'];
+        return ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     }
     /**
     * defines years since 2007 and up to 2016.
@@ -61,13 +61,13 @@ class utility {
     *
     * @return array of data records.
     */
-    public static function fetch_results_by_year($conn, $year) {
+    public static function fetch_results_by_year($conn, $year, $month) {
 
         $sql = "SELECT n.year, n.month, n.id, a.id, a.newsletterid, a.title, a.description
                 FROM newsletters AS n
                 JOIN articles AS a
                 ON a.newsletterid = n.id
-                WHERE n.year = '$year'";
+                WHERE n.year = '$year' AND n.month = '$month'";
 
         return $conn->query($sql);
     }

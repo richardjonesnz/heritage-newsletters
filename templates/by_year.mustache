@@ -12,19 +12,35 @@
   <div class="row">
     <div class="col-md-12">
       <h2>{{heading}}</h2>
-      <p>On this page you can click the link to show the list of articles for a calendar year.</p>
+      <p>On this page you can click the link to show the list of articles for a calendar year/month.</p>
       <p>To return to the home page click here: <a href="index.php">home</a></p>
-        <p>{{year}}</p>
+        <form method="post" action="./by_year.php">
+        <div class="form-group">
+          <label for="year">Select year:</label>
+          <select id="year" name="year">
+            {{#yeardata}}
+               <option value="{{year}}" {{selected}}>{{year}}</option>
+            {{/yeardata}}
+          </select>
+          <label for="month">Select month:</label>
+          <select id="month" name="month">
+            {{#monthdata}}
+               <option value="{{month}} {{selected}}">{{month}}</option>
+            {{/monthdata}}
+          </select>
+          &nbsp;
+        <button type="submit" class="btn btn-primary">Go</button>
+        </form>
+        <br>
+        <p> Showing records for {{month}} {{year}} (if any)</p>
         <table class="table table-striped">
           <thead>
-            <th>Month</th>
             <th>Article Title</th>
             <th>Article Text</th>
           </thead>
           <tbody>
             {{#records}}
             <tr>
-              <td>{{month}}</td>
               <td>{{title}}</td>
               <td>{{description}}</td>
             </tr>

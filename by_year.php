@@ -12,10 +12,53 @@ include('classes/utility.php');
 
 $template = $M->loadTemplate('by_year.mustache');
 $data = new stdClass;
-$year = 2012;
-$data->year = $year;
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (!empty($_POST['year'])) {
+        $data->year = $_POST['year'];
+    } else {
+        $data->year = "2007";
+    }
+}
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (!empty($_POST['month'])) {
+        $data->month = $_POST['month'];
+    } else {
+        $data->month = "Feb";
+    }
+}
+$data->years = utility::fetch_years();
+$data->months = utility::fetch_months();
 $data->pagetitle = 'Articles for ' . $year;
-$data->heading = 'Browse newsletters by year';
-$data->records = utility::fetch_results_by_year($conn, $year);
+$data->heading = 'Browse articles by year';
+$data->yeardata[] = new stdClass;
+
+foreach($data->years as $y) {
+
+    $data->yeardata[]->year =$y;
+
+    if ($data->year == $y) {
+        $data->yeardata->selected = 'selected';
+     } else {
+        $data->yeardata->selected = '';
+     }
+}
+
+$data->monthdata[] = new stdClass;
+
+foreach($data->months as $m) {
+
+    $data->monthdata[]->month =$m;
+
+    if ($data->month == $m) {
+        $data->monthdata->selected = 'selected';
+     } else {
+        $data->monthdata->selected = '';
+     }
+}
+
+
+$data->records = utility::fetch_results_by_year($conn, $data->year, $data->month);
+
 
 echo $template->render($data);
