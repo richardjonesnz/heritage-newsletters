@@ -1,8 +1,8 @@
 {{!
-    Template for a generic html page
+    Template for the newsletters index page.
 
     * @package heritage-newsletters
-    * @copyright 2019 Richard Jones https://richardnz.net
+    * @copyright 2020 Richard Jones https://richardnz.net
     * @license Creative Commons CC-BY 3.0 NZ
 
 }}
@@ -11,14 +11,13 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h2>{{heading}}</h2>
+        {{!<h2>{{heading}}{{!</h2>}}
         <h3>{{greeting}}{{name}}</h3>
-        <p>This page allows you browse through our newsletters. Click a link to view the pdf version of the newsletter.  Use the back button to return.  You may also print or download the newsletter.</p>
-        <p>Click the link to search for specific articles: <a href="articles.php">articles</a></p>
-        <p> Showing {{limit}} records per page</p>
+        <p>This page allows you browse through our newsletters. Click a link to view the pdf version of the newsletter.  Use the back button to return.  You may also print or download the newsletter.  Click the link to search for specific articles: <a href="articles.php">articles</a></p>
+        <p> Showing {{limit}} records per page.</p>
+        <p>Page: {{page}}</p>
       </div>
     </div>
-    <br />
     <div>
     <table class="table table-striped">
       <thead>

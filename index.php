@@ -14,13 +14,15 @@ $template = $M->loadTemplate('welcome.mustache');
 
 // Total records.
 $numrecords = utility::count_entries($conn);
-echo ''. $numrecords;
+
 $data = new stdClass;
 $data->pagetitle = 'Home page';
 $data->heading = 'Newsletters home page';
 $data->greeting = 'Welcome ';
 $data->name = (isset($_SESSION['firstname'])) ? $_SESSION['firstname'] : 'user';
 $data->page = (isset($_GET['page']) && is_numeric($_GET['page']) ) ? $_GET['page'] : 1;
+
+// 10 records per page.
 $data->limit = 10;
 $num_pages = ceil($numrecords / $data->limit);
 
