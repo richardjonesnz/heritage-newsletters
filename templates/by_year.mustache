@@ -1,0 +1,38 @@
+{{!
+    Viewing articles by year
+
+    * @package heritage-newsletters
+    * @copyright 2020 Richard Jones https://richardnz.net
+    * @license Creative Commons CC-BY 3.0 NZ
+
+}}
+{{> header}}
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2>{{heading}}</h2>
+      <p>On this page you can click the link to show the list of articles for a calendar year.</p>
+      <p>To return to the home page click here: <a href="index.php">home</a></p>
+        <p>{{year}}</p>
+        <table class="table table-striped">
+          <thead>
+            <th>Month</th>
+            <th>Article Title</th>
+            <th>Article Text</th>
+          </thead>
+          <tbody>
+            {{#records}}
+            <tr>
+              <td>{{month}}</td>
+              <td>{{title}}</td>
+              <td>{{description}}</td>
+            </tr>
+            {{/records}}
+          </tbody>
+        </table>
+      </div>
+  </div>
+</div>
+<br>
+{{> footer }}
