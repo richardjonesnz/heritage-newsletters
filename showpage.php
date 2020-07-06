@@ -9,6 +9,7 @@
 require_once('/var/www/news/mustache_inc.php');
 require_once('/var/www/news/open_db_inc.php');
 include('classes/utility.php');
+
 // Get the Newsletter id.
 $number = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 $max = utility::count_entries($conn);
