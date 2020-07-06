@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $data->month = "Feb";
     }
 }
-$data->years = utility::fetch_years();
+$data->years = utility::fetch_years($conn);
 $data->months = utility::fetch_months();
 $data->pagetitle = 'Articles for ' . $year;
 $data->heading = 'Browse articles by year';
@@ -59,6 +59,6 @@ foreach($data->months as $m) {
 
 
 $data->records = utility::fetch_results_by_year($conn, $data->year, $data->month);
-
+$data->newsletterid = (int) utility::get_newsletterid($conn, $data->year, $data->month);
 
 echo $template->render($data);
