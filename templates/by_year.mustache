@@ -7,48 +7,45 @@
 
 }}
 {{> header}}
-<body>
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <h2>{{heading}}</h2>
-      <p>On this page you can click the link to show the list of articles for a calendar year/month.</p>
-      <p>To return to the home page click here: <a href="index.php">home</a></p>
-        <form method="post" action="./by_year.php">
-        <div class="form-group">
-          <label for="year">Select year:</label>
-          <select id="year" name="year">
-            {{#yeardata}}
-               <option value="{{year}}" {{selected}}>{{year}}</option>
-            {{/yeardata}}
-          </select>
-          <label for="month">Select month:</label>
-          <select id="month" name="month">
-            {{#monthdata}}
-               <option value="{{month}} {{selected}}">{{month}}</option>
-            {{/monthdata}}
-          </select>
-          &nbsp;
-        <button type="submit" class="btn btn-primary">Go</button>
-        </form>
-        <br>
-        <p> Showing records for <a href="showpage.php?id={{newsletterid}}">{{month}} {{year}}</a> (if any)</p>
-        <table class="table table-striped">
-          <thead>
-            <th>Article Title</th>
-            <th>Article Text</th>
-          </thead>
-          <tbody>
-            {{#records}}
-            <tr>
-              <td>{{title}}</td>
-              <td>{{description}}</td>
-            </tr>
-            {{/records}}
-          </tbody>
-        </table>
-      </div>
-  </div>
-</div>
+
+<h2>{{heading}}</h2>
+<p>On this page you can click the link to show the list of articles for a calendar year/month.</p>
+  <form class="form-inline"method="post" action="./by_year.php">
+    <div class="form-group">
+      <label for="year" class="mx-2">Select year: </label>
+      <select id="year" name="year">
+        {{#yeardata}}
+          <option value="{{year}}" {{selected}}>{{year}}</option>
+        {{/yeardata}}
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="month" class="mx-2"> Select month: </label>
+      <select id="month" name="month">
+        {{#monthdata}}
+          <option value="{{month}} {{selected}}">{{month}}</option>
+        {{/monthdata}}
+      </select>
+    </div>
+    <div class="form-group mx-4">
+      <button type="submit" class="btn btn-primary"> Go </button>
+    </div>
+  </form>
 <br>
+<p> Showing records for <a href="showpage.php?id={{newsletterid}}">{{month}} {{year}}</a> (if any)</p>
+<table class="table table-striped">
+  <thead>
+    <th>Article Title</th>
+    <th>Article Text</th>
+  </thead>
+  <tbody>
+    {{#records}}
+      <tr>
+        <td>{{title}}</td>
+        <td>{{description}}</td>
+      </tr>
+    {{/records}}
+  </tbody>
+</table>
+
 {{> footer }}

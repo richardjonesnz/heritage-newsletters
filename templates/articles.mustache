@@ -7,46 +7,41 @@
 
 }}
 {{> header}}
-<body>
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <h2>{{heading}}</h2>
-      <h3>Search articles</h3>
-      <p>On this page you can enter a search term in the box below to limit the number of records returned or search for a particular term in either the Article title or the Article description.</p>
-      <p>Click the number in the Newsletter column to view the full Newsletter.</p>
-      <p>To return to the home page click here: <a href="index.php">home</a></p>
-      <form method="post" action="./articles.php">
-        <div class="form-group">
-          <label for="searchtext">Search:</label>
-          <input type="text" class="form-control" name="searchtext" value="{{searchtext}}">
-        </div>
-        <br />
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-      <br>
-      <div>
-        <p>{{searchedfor}}</p>
-        <table class="table table-striped">
-          <thead>
-            <th>Article No.</th>
-            <th>Newsletter No.</th>
-            <th>Article Title</th>
-            <th>Article Text</th>
-          </thead>
-          <tbody>
-            {{#records}}
-            <tr>
-              <td>{{id}}</td>
-              <td><a href="showpage.php?id={{newsletterid}}">{{newsletterid}}</a></td>
-              <td>{{title}}</td>
-              <td>{{description}}</td>
-            </tr>
-            {{/records}}
-          </tbody>
-        </table>
-      </div>
+
+<h2>{{heading}}</h2>
+<h3>Search articles</h3>
+<p>On this page you can enter a search term in the box below to limit the number of records returned or search for a particular term in either the Article title or the Article description.  Records are sorted by title.</p>
+<p>Click the number in the Newsletter column to view the full Newsletter.</p>
+
+<form method="post" action="./articles.php">
+  <div class="form-group">
+    <label for="searchtext">Search:</label>
+    <input type="text" class="form-control" name="searchtext" value="{{searchtext}}">
   </div>
+  <br />
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<br>
+<div>
+  <p>{{searchedfor}}</p>
+  <table class="table table-striped">
+    <thead>
+      <th>Article No.</th>
+      <th>Newsletter No.</th>
+      <th>Article Title</th>
+      <th>Article Text</th>
+    </thead>
+    <tbody>
+      {{#records}}
+        <tr>
+          <td>{{id}}</td>
+          <td><a href="showpage.php?id={{newsletterid}}">{{newsletterid}}</a></td>
+          <td>{{title}}</td>
+          <td>{{description}}</td>
+        </tr>
+      {{/records}}
+    </tbody>
+  </table>
 </div>
 <br>
 {{> footer }}

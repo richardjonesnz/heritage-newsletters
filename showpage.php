@@ -20,5 +20,7 @@ $data = new stdClass;
 $data->number = $number;
 $data->pagetitle = 'Viewing Newsletter';
 $data->heading = 'Newsletters home page';
+$data->next = $number + 1;
+$data->previous = $number - 1;
 
 echo $template->render($data);

@@ -43,10 +43,22 @@ class utility {
     */
     public static function fetch_newsletters($conn, $offset, $limit) {
 
-        $sql = "SELECT id, month, year FROM newsletters LIMIT $offset, $limit";
+        $sql = "SELECT id, month, year, duplicate FROM newsletters LIMIT $offset, $limit";
 
-        return $conn->query($sql);
-    }
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+
+        $records = $stmt->fetchAll();
+
+        foreach($records as &$record) {
+            if ($record['duplicate'] == 0) {
+                $record['duplicate'] = '';
+            }
+            unset($record);
+        }
+
+        return $records;
+  }
     /**
     * Searches the articles table.
     *
@@ -56,7 +68,8 @@ class utility {
 
         $sql = "SELECT * FROM articles WHERE
                 title LIKE '$searchtext' OR
-                description LIKE '$searchtext'";
+                description LIKE '$searchtext'
+                ORDER BY title";
 
         return $conn->query($sql);
     }
