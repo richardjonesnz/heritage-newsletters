@@ -15,7 +15,7 @@ check_loggedin($conn);
 		<nav class="navtop">
 			<div>
 				<h1>Pirongia Heritage Newsletters</h1>
-				<a href="../index.php"><i class="fas fa-home"></i>Newsletters</a>
+				<a href="../index.php"><i class="fas fa-home"></i>Newsletters home</a>
 				<?php if ($_SESSION['role'] == 'Admin'): ?>
 				<a href="admin/index.php" target="_blank"><i class="fas fa-user-cog"></i>Administer users</a>
 				<?php endif; ?>

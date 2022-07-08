@@ -116,7 +116,6 @@ class utility {
     }
 
     function check_loggedin() {
-        start_session();
         // Check for loggedin session variable
         return (isset($_SESSION['loggedin']));
     }
