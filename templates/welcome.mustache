@@ -7,43 +7,40 @@
 
 }}
 {{> header}}
-<body>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        {{!<h2>{{heading}}{{!</h2>}}
-        <h3>{{greeting}}{{name}}</h3>
-        <p>This page allows you browse through our newsletters. Click a link to view the pdf version of the newsletter.  Use the back button to return.  You may also print or download the newsletter.  Click the link to search for specific articles: <a href="articles.php">articles</a></p>
-        <p> Showing {{limit}} records per page.</p>
-        <p>Page: {{page}}</p>
-      </div>
-    </div>
-    <div>
-    <table class="table table-striped">
-      <thead>
-        <th>Number</th>
-        <th>Month</th>
-        <th>Year</th>
-        <th>Click to view</th>
-      </thead>
-      <tbody>
-        {{#records}}
+
+{{!<h2>{{heading}}{{!</h2>}}
+<p>This page allows you browse through our newsletters. Click a link to view the pdf version of the newsletter. You may also print or download the newsletter. </p>
+<p>Showing {{limit}} records per page.</p>
+<p>Page: {{page}}</p>
+<div>
+  <table class="table table-striped">
+    <thead>
+      <th>Number</th>
+      <th>Month</th>
+      <th>Year</th>
+      <th>Same as</th>
+      <th>Click to view</th>
+    </thead>
+    <tbody>
+      {{#records}}
         <tr>
           <td>{{id}}</td>
           <td>{{month}}</td>
           <td>{{year}}</td>
+          <td>{{duplicate}}</td>
           <td><a href="showpage.php?id={{id}}">link</a></td>
         </tr>
-        {{/records}}
-      </tbody>
-    </table>
-    <br>
-    <ul class="list-group flex-sm-row">
-      <li class="list-group-item">Pages: </li>
+      {{/records}}
+    </tbody>
+  </table>
+  <br>
+  <ul class="list-group flex-sm-row">
+    <li class="list-group-item">Pages: </li>
       {{#page_links}}
         <li class="list-group-item"><a href="index.php?page={{.}}">{{.}}</a></li>
       {{/page_links}}
-    </ul>
-  </div>
-  <br>
+  </ul>
+</div>
+<br>
+
 {{> footer }}

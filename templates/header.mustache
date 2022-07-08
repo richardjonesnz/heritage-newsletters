@@ -35,3 +35,17 @@ body {
 
 </head>
 <body>
+<div class="container">
+    <div class="row">
+      <div class="col-md-12">
+          <ul class="list-group flex-sm-row">
+            <li class="list-group-item">Links: </li>
+            <li class="list-group-item"><a href="https://pirongiaheritage.org.nz">Main site</li>
+            <li class="list-group-item"><a href="index.php?page=1">Newsletter index</li>
+            <li class="list-group-item"><a href="articles.php">Article search</li>
+            <li class="list-group-item"><a href="by_year.php">Browse articles</a></li>
+            {{#is_loggedin}}
+                <li class="list-group-item"><a href="accounts/home.php">Administration</a></li>
+            {{/is_loggedin}}
+          </ul>
+          <br>

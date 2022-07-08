@@ -6,7 +6,7 @@
  * @copyright 2020 Richard Jones https://richardnz.net
  * @license Creative Commons CC-BY 3.0 NZ
  */
-require_once('/var/www/news/config_inc.php');
+require_once('accounts/main.php');
 require_once('/var/www/news/mustache_inc.php');
 include('classes/utility.php');
 
@@ -36,6 +36,8 @@ for ($i = 1; $i <= $num_pages; $i++) {
 $offset = ($data->page - 1) * $data->limit;
 $data->records = utility::fetch_newsletters($conn, $offset, $data->limit);
 
+// Check if logged in
+$data->is_loggedin = $_SESSION['loggedin'];
 echo $template->render($data);
 
 ?>

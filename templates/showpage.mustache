@@ -7,16 +7,19 @@
 
 }}
 {{> header}}
-<body>
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <h2>{{heading}}</h2>
-      <h3>View newsletter: {{number}}</h3>
-      <p>To return to the home page click here: <a href="index.php">home</a></p>
-      <iframe src="pdf/Newsletter_{{number}}.pdf" width="100%" height="800px">
-      </iframe>
-    </div>
-  </div>
+
+<h2>{{heading}}</h2>
+<h3>View newsletter: {{number}}</h3>
+  <ul class="list-group flex-sm-row">
+    <li class="list-group-item"><a href="showpage.php?id={{next}}">next</a></li>
+    <li class="list-group-item"><a href="showpage.php?id={{previous}}">previous</a></li>
+  </ul>
+  <iframe src="pdf/Newsletter_{{number}}.pdf" width="100%" height="800px">
+  </iframe>
   <br>
-  {{> footer }}
+  <ul class="list-group flex-sm-row">
+    <li class="list-group-item"><a href="showpage.php?id={{next}}">next</a></li>
+    <li class="list-group-item"><a href="showpage.php?id={{previous}}">previous</a></li>
+  </ul>
+
+{{> footer }}
